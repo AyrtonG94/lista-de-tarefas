@@ -14,7 +14,8 @@ class TarefaController extends Controller
      */
     public function index()
     {
-        return view('site.index');
+        $lista_tarefas =  Tarefa::paginate(4);
+        return view('site.index', ['lista_tarefas' => $lista_tarefas]);
     }
 
     /**
@@ -24,7 +25,8 @@ class TarefaController extends Controller
      */
     public function create()
     {
-        return view('site.create');
+
+       return view('site.create');
     }
 
     /**
@@ -47,7 +49,7 @@ class TarefaController extends Controller
      */
     public function show($id)
     {
-        return view('site.show');
+        return view('site.edit');
     }
 
     /**
