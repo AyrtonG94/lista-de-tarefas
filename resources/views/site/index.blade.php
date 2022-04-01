@@ -9,13 +9,13 @@
 </head>
 
 <body>
-    <h1> Criar nova Tarefa</h1>
+    <h1> Lista de Tarefas</h1>
 
     <div>
         @foreach($lista_tarefas as $lista)
-        {{$lista->tarefa}} <br>
+        <h3> {{$lista->tarefa}} </h3> <a href="{{ route('tarefas/.edit')}}" > Editar</a>
         {{$lista->descricao}} <br>
-        {{$lista->created_at}} <br>
+        {{$lista->created_at}} <br> <br>
         @endforeach
 
     </div>
