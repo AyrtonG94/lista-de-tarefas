@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h1> Lista de Tarefas</h1>
+    <h1> Lista de Tarefas</h1> <a href="{{route('tarefas.create')}}" ><button class="botao-nova-tarefa"> Nova Tarefa</button></a>
 
     <div>
         @foreach($lista_tarefas as $lista)
