@@ -1,3 +1,7 @@
+
+
+
+<!--
 <select name="status_id">
                 <option> - Escolha o Status - </option>
                 @foreach($status as $opcoes)
@@ -7,6 +11,7 @@
 
         </select>
 
+!-->
 
 
 

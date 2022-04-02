@@ -62,9 +62,9 @@ class TarefaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tarefa $tarefa)
     {
-        return view('site.edit');
+        return view('site.edit', ['tarefa' => $tarefa]);
     }
 
     /**
@@ -85,8 +85,8 @@ class TarefaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tarefa $tarefa)
     {
-        //
+        $tarefa->destroy($tarefa->id);
     }
 }

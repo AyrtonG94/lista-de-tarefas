@@ -1,10 +1,11 @@
 body {
     width: 50%;
     margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .borda-vermelha {
-    border: 2px solid rgb(247, 6, 6);
+    border: 1px solid rgb(247, 6, 6);
     margin-top: 30px;
 }
 
@@ -14,7 +15,7 @@ body {
 }
 
 .borda-amarela {
-    border: 1px solid  hwb(61 19% 2%);
+    border: 1px solid hwb(61 19% 2%);
     margin-top: 30px;
 }
 
@@ -24,22 +25,67 @@ body {
 }
 
 .botao-nova-tarefa {
-    font-size:15px;
-    font-family:Arial;
-    width:140px;
-    height:50px;
-    border-width:1px;
-    color:#fff;
-    border-color:#0b0e07;
-    border-top-left-radius:3px;
-    border-top-right-radius:3px;
-    border-bottom-left-radius:3px;
-    border-bottom-right-radius:3px;
-    box-shadow:inset 0px -3px 7px 0px #29bbff;
-    text-shadow:inset 0px 1px 0px #263666;
-    background:linear-gradient(#2dabf9, #0688fa);
-  }
+    font-size: 15px;
+    font-family: Arial;
+    width: 140px;
+    height: 50px;
+    border-width: 1px;
+    color: #fff;
+    border-color: #4b8f29;
+    font-weight: bold;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0px 10px 14px -7px #3e7327;
+    text-shadow: 0px 1px 0px #5b8a3c;
+    background: linear-gradient(#72b352, #77b55a);
+}
 
-  .botao-nova-tarefa:hover {
+.botao-nova-tarefa:hover {
     background: linear-gradient(#0688fa, #2dabf9);
-  }
+}
+
+.botao-excluir-tarefa {
+    font-size: 15px;
+    font-family: Arial;
+    width: 84px;
+    height: 35px;
+    border-width: 1px;
+    color: #fff;
+    border-color: #ffffff;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-shadow: inset 0px 39px 0px -24px #e67a73;
+    text-shadow: inset 0px 1px 0px #b23e35;
+    background: #e4685d;
+}
+
+.botao-excluir-tarefa:hover {
+    background: #eb675e
+}
+
+
+.botao-editar-tarefa {
+    font-size: 15px;
+    font-family: Arial;
+    width: 84px;
+    height: 35px;
+    border-width: 1px;
+    color: #fff;
+    border-color: #599bb3;
+    font-weight: bold;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: 0px 10px 14px -7px #276873;
+    text-shadow: 0px 1px 0px #3d768a;
+    background: linear-gradient(#599bb3, #408c99);
+}
+
+.bota-editar-tarefa:hover {
+    background: linea
+}
