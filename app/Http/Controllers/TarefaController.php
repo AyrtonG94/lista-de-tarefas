@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tarefa;
+use App\Models\TarefaStatus;
 use Illuminate\Http\Request;
+
+use function GuzzleHttp\Promise\all;
 
 class TarefaController extends Controller
 {
@@ -12,10 +15,11 @@ class TarefaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $lista_tarefas =  Tarefa::paginate(4);
-        return view('site.index', ['lista_tarefas' => $lista_tarefas]);
+        $lista_tarefas =  Tarefa::with(['TarefaStatus'])->paginate(4);
+
+        return view('site.index', ['lista_tarefas' => $lista_tarefas, 'request' => $request->all()]);
     }
 
     /**
@@ -25,8 +29,8 @@ class TarefaController extends Controller
      */
     public function create()
     {
-
-       return view('site.create');
+        $status =  TarefaStatus::all();
+       return view('site.create', ['status' => $status]);
     }
 
     /**

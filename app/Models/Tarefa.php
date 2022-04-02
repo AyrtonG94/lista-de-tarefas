@@ -9,5 +9,9 @@ class Tarefa extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['tarefa', 'descricao', 'data_criacao', 'status'];
+    protected $fillable = ['nome', 'descricao'];
+
+    public function TarefaStatus() {
+        return $this->hasOne('App\Models\TarefaStatus');
+    }
 }

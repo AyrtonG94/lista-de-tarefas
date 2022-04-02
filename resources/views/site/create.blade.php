@@ -11,8 +11,8 @@
 
     <form name="criar-tarefa"  method="POST" action="{{route('tarefas.store')}}">
         @csrf
-        <label> Nome da Tarefa: </label> <input type="text" name="tarefa"> <br>
-        <label> Descrição: </label> <br> <textarea  name="descricao" rows="4" cols="50"> </textarea> <br>
+        <label> Nome da Tarefa: </label> <input type="text" name="nome" minlength="4" maxlength="50"> <br>
+        <label> Descrição: </label> <br> <textarea  name="descricao" rows="4" cols="50" maxlength="100"> </textarea> <br>
         <button type="submit"> Cadastrar </button>
     </form>
 

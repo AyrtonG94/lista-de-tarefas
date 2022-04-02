@@ -1,0 +1,24 @@
+body {
+    width: 50%;
+    margin: 0;
+}
+
+.borda-vermelha {
+    border: 2px solid rgb(247, 6, 6);
+    margin-top: 30px;
+}
+
+.borda-verde {
+    border: 1px solid rgb(26, 247, 6);
+    margin-top: 30px;
+}
+
+.borda-amarela {
+    border: 1px solid  hwb(61 19% 2%);
+    margin-top: 30px;
+}
+
+.borda-azul {
+    border: 1px solid rgb(6, 22, 247);
+    margin-top: 30px;
+}
