@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Tarefa;
 use App\Models\TarefaStatus;
+use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 
 use function GuzzleHttp\Promise\all;
 
@@ -18,7 +20,6 @@ class TarefaController extends Controller
     public function index(Request $request)
     {
         $lista_tarefas =  Tarefa::with(['TarefaStatus'])->paginate(4);
-
         return view('site.index', ['lista_tarefas' => $lista_tarefas, 'request' => $request->all()]);
     }
 

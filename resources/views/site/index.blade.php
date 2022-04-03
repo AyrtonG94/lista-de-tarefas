@@ -10,20 +10,23 @@
 </head>
 
 <body>
+    <div style="text-align:center">
     <h1> Lista de Tarefas</h1> <a href="{{route('tarefas.create')}}" ><button class="botao-nova-tarefa"> Nova Tarefa</button></a>
+    </div> <br> <br> <br>
 
-    <div>
+
+    <div style="text-align:center">
         @foreach($lista_tarefas as $tarefa)
-        <div class="borda-vermelha">
+        <div>
             <h3> Tarefa:</h3> {{$tarefa->nome}}
             <h3> Descrição:</h3>{{$tarefa->descricao}} <br>
-            <h3> Data de criação:</h3>{{$tarefa->created_at}} <br> <br>
+            <h3> Tarefa criada em:</h3> {{$tarefa->created_at->format('d-m-Y H:i:s')}} <br> <br>
             <h3> Status: {{$tarefa->TarefaStatus->status}} </h3>
             <a href="{{ route('tarefas.edit', ['tarefa' => $tarefa->id ]) }}">
                 <button class="botao-editar-tarefa">Editar </button> </a>
 
             <a href="{{ route('tarefas.destroy', ['tarefa' => $tarefa->id ]) }}">
-                <button class="botao-excluir-tarefa"> Exluir </button> </a>
+                <button class="botao-excluir-tarefa"> Exluir </button> </a> <br> <br> <br>
 
 
         </div>
