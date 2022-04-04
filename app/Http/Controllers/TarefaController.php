@@ -65,7 +65,7 @@ class TarefaController extends Controller
      */
     public function edit(Tarefa $tarefa)
     {
-        return view('site.edit', ['tarefa' => $tarefa]);
+
     }
 
     /**
@@ -89,5 +89,7 @@ class TarefaController extends Controller
     public function destroy(Tarefa $tarefa)
     {
         $tarefa->destroy($tarefa->id);
+        return redirect()->route('tarefas.index');
+
     }
 }
