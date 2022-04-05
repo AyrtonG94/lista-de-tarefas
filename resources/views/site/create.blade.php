@@ -13,6 +13,14 @@
         @csrf
         <label> Nome da Tarefa: </label> <input type="text" name="nome" minlength="4" maxlength="50"> <br>
         <label> Descrição: </label> <br> <textarea  name="descricao" rows="4" cols="50" maxlength="100"> </textarea> <br>
+
+        <select name="status_id">
+        <option>-- Selecione um Status --</option>
+
+        @foreach($status as $tarefa_status)
+            <option value="{{ $tarefa_status->id }}" {{ ($tarefa_status->tarefa_status_id ?? old('tarefa_status')) == $tarefa_status->id ? 'selected' : '' }} >{{ $tarefa_status->status }}</option>
+        @endforeach
+    </select>
         <button type="submit"> Cadastrar </button>
     </form>
 

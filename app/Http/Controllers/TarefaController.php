@@ -30,7 +30,8 @@ class TarefaController extends Controller
      */
     public function create()
     {
-        $status =  TarefaStatus::all();
+
+        $status =   TarefaStatus::all();
        return view('site.create', ['status' => $status]);
     }
 
@@ -54,7 +55,7 @@ class TarefaController extends Controller
      */
     public function show($id)
     {
-        return view('site.edit');
+
     }
 
     /**
@@ -63,9 +64,10 @@ class TarefaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tarefa $tarefa)
+    public function edit(Tarefa $tarefas)
     {
-
+        $tarefas = Tarefa::all();
+        return view('site.edit',['tarefas' => $tarefas]);
     }
 
     /**
@@ -77,7 +79,6 @@ class TarefaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
     }
 
     /**
@@ -86,8 +87,9 @@ class TarefaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tarefa $tarefa)
+    public function destroy(Tarefa $tarefa, TarefaStatus $tarefaStatus)
     {
+        $tarefaStatus->destroy($tarefaStatus->tarefa_id);
         $tarefa->destroy($tarefa->id);
         return redirect()->route('tarefas.index');
 

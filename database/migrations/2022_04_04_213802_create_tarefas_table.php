@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('nome', 50);
             $table->text('descricao', 100);
             $table->timestamps();
-
+            $table->unsignedBigInteger('status_id');
+            $table->foreign('status_id')->references('id')->on('tarefastatus');
         });
 
 

@@ -13,7 +13,7 @@ class TarefaStatus extends Model
     protected $fillable = ['status'];
 
     public function statusTarefa() {
-        return $this->belongsTo('app\Models\Tarefa');
+        return $this->hasOne('app\Models\Tarefa');
     }
 
 }

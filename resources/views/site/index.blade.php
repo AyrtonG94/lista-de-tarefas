@@ -18,6 +18,7 @@
     <div style="text-align:center">
         @foreach($lista_tarefas as $tarefa)
         <div>
+
             <h3> Tarefa:</h3> {{$tarefa->nome}}
             <h3> Descrição:</h3>{{$tarefa->descricao}} <br>
             <h3> Tarefa criada em:</h3> {{$tarefa->created_at->format('d-m-Y H:i:s')}} <br> <br>
