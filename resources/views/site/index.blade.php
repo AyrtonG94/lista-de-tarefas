@@ -23,14 +23,18 @@
             <h3> Descrição:</h3>{{$tarefa->descricao}} <br>
             <h3> Tarefa criada em:</h3> {{$tarefa->created_at->format('d-m-Y H:i:s')}} <br> <br>
             <h3> Status: {{$tarefa->TarefaStatus->status ?? ''}}</h3>
+
             <a href="{{ route('tarefas.edit', ['tarefa' => $tarefa->id ]) }}">
                 <button class="botao-editar-tarefa">Editar </button> </a>
+
+
 
             <form id="form_{{$tarefa->id}}" method="post" action="{{ route('tarefas.destroy', ['tarefa' => $tarefa->id]) }}">
                 @method('DELETE')
                 @csrf
                 <a href="#" onclick="document.getElementById('form_{{$tarefa->id}}').submit()"> <button class="botao-excluir-tarefa">Excluir </button></a>
             </form>
+
 
 
 

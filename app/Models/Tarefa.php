@@ -12,6 +12,6 @@ class Tarefa extends Model
     protected $fillable = ['nome', 'descricao', 'status_id'];
 
     public function TarefaStatus() {
-        return $this->belongsTo('App\Models\TarefaStatus', 'status_id');
+        return $this->belongsTo('App\Models\TarefaStatus', 'status_id'); //Devo chamar o campo que é FK da tabela
     }
 }
