@@ -36,7 +36,7 @@
         </div>
 
         @endforeach
-
+        {{$lista_tarefas->links()}}
     </div>
 
 </body>

@@ -19,8 +19,9 @@ class TarefaController extends Controller
      */
     public function index(Request $request)
     {
-        $lista_tarefas =  Tarefa::with(['TarefaStatus'])->paginate(10);
-        return view('site.index', ['lista_tarefas' => $lista_tarefas, 'request' => $request->all()]);
+        $lista_tarefas =  Tarefa::with(['TarefaStatus'])->paginate(2);
+        return view('site.index', ['lista_tarefas' => $lista_tarefas, 'request' => $request->all()])
+        ->with('lista_tarefas', $lista_tarefas);
     }
 
     /**
