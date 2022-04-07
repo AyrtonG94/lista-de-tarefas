@@ -5,32 +5,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Pagina Inicial</title>
 </head>
 
 <body>
-    <div style="text-align:center">
-        <h1> Lista de Tarefas</h1> <a href="{{route('tarefas.create')}}"><button class="botao-nova-tarefa"> Nova Tarefa</button></a>
+    <div class="text-center">
+     <p class="fs-1">  Lista de Tarefas </p> <a href="{{route('tarefas.create')}}"><button type="button" class="btn btn-success">Nova Tarefa</button></a>
     </div> <br> <br> <br>
 
 
-    <div style="text-align:center">
+    <div class="text-center">
         @foreach($lista_tarefas as $tarefa)
         <div>
 
-            <h3> Tarefa:</h3> {{$tarefa->nome}}
-            <h3> Descrição:</h3>{{$tarefa->descricao}} <br>
-            <h3> Tarefa criada em:</h3> {{$tarefa->created_at->format('d-m-Y H:i:s')}} <br> <br>
-            <h3> Status: {{$tarefa->TarefaStatus->status ?? ''}}</h3>
+        <p class="fs-3">Tarefa:</p> {{$tarefa->nome}}
+        <p class="fs-3"> Descrição:</p>{{$tarefa->descricao}} <br>
+        <p class="fs-3"> Tarefa criada em:</p> {{$tarefa->created_at->format('d-m-Y H:i:s')}} <br> <br>
+        <p class="fs-3"> Status: {{$tarefa->TarefaStatus->status ?? ''}}</p>
 
             <a href="{{ route('tarefas.edit', ['tarefa' => $tarefa]) }}">
-                <button class="botao-editar-tarefa">Editar </button> </a>
+            <button type="button" class="btn btn-primary position-relative">Editar</button> </a>
 
             <form id="form_{{$tarefa->id}}" method="post" action="{{ route('tarefas.destroy', ['tarefa' => $tarefa->id]) }}">
                 @method('DELETE')
                 @csrf
-                <a href="#" onclick="document.getElementById('form_{{$tarefa->id}}').submit()"> <button class="botao-excluir-tarefa">Excluir </button></a>
+                <a href="#" onclick="document.getElementById('form_{{$tarefa->id}}').submit()"> <button type="button" class="btn btn-danger position-relative">Excluir</button></a>
             </form> <br> <br> <br>
 
         </div>
