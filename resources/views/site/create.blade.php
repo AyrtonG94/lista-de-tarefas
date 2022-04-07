@@ -21,7 +21,7 @@
             <option value="{{ $tarefa_status->id }}" {{ ($tarefa_status->tarefa_status_id ?? old('tarefa_status')) == $tarefa_status->id ? 'selected' : '' }} >{{ $tarefa_status->status }}</option>
         @endforeach
     </select>
-        <button type="submit"> Cadastrar </button>
+        <button  class="botao-cadastrar"type="submit"> Cadastrar </button>
     </form>
 
 

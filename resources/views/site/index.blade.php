@@ -24,7 +24,7 @@
             <h3> Tarefa criada em:</h3> {{$tarefa->created_at->format('d-m-Y H:i:s')}} <br> <br>
             <h3> Status: {{$tarefa->TarefaStatus->status ?? ''}}</h3>
 
-            <a href="{{ route('tarefas.edit', ['tarefa' => $tarefa->id ]) }}">
+            <a href="{{ route('tarefas.edit', ['tarefa' => $tarefa]) }}">
                 <button class="botao-editar-tarefa">Editar </button> </a>
 
 

@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <title>Editar Tarefa</title>
 </head>
+
 <body>
-<h1> Editar Tarefa</h1>
+    <h1> Editar Tarefa</h1> <a href="{{route('tarefas.index')}}"> <button class="botao-voltar">Voltar </button> </a> <br> <br> <br> <br> <br>
+    <form name="editar-tarefa" method="POST" action="{{route('tarefas.update', ['tarefa' => $tarefa->id ])}}">
 
-    @foreach($tarefas as $tarefa)
-
-    <form name="criar-tarefa"  method="POST" action="{{route('tarefas.update', ['tarefa' => $tarefa]) }}">
         @csrf
-        <label> Nome da Tarefa: </label> <input type="text" name="nome"  value="{{$tarefa->nome}}" minlength="4" maxlength="50"> <br>
-        <label> Descrição: </label> <br> <textarea  name="descricao"  value="{{$tarefa->descricao}}"rows="4" cols="50" maxlength="100"> </textarea> <br>
-        <button type="submit"> Alterar </button>
+        @method('PUT')
+        <label> <h4> Nome da tarefa: </h4> </label> <input type="text" value="{{$tarefa->nome ?? old('nome')}}" name="nome" minlength="4" maxlength="50"> <br> <br>
+        <label> <h4> Descrição: </h4> </label>  <textarea name="descricao" placeholder="{{$tarefa->descricao ?? old('descricao')}}"  rows="10" cols="50" maxlength="100"> </textarea> <br> <br>
+
+         <h4> Status: </h4> <select name="status_id">
+            <option>-- Selecione um Status --</option>
+            @foreach($status as $tarefa_status)
+             <option value="{{ $tarefa_status->id }}" {{ ($tarefa->status_id ?? old('status_id')) == $tarefa_status->id ? 'selected' : '' }}>{{ $tarefa_status->status }}</option>
+            @endforeach
+        </select> <br> <br> <br>
+        <button class="botao-editar" type="submit"> Editar </button>
+
+
     </form>
-    @endforeach
+
 
 
 
 
 
 </body>
+
 </html>
