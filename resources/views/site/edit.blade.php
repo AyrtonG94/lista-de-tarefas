@@ -16,7 +16,7 @@
         @csrf
         @method('PUT')
         <label> <h4> Nome da tarefa: </h4> </label> <input type="text" value="{{$tarefa->nome ?? old('nome')}}" name="nome" minlength="4" maxlength="50"> <br> <br>
-        <label> <h4> Descrição: </h4> </label>  <textarea name="descricao" placeholder="{{$tarefa->descricao ?? old('descricao')}}"  rows="10" cols="50" maxlength="100"> </textarea> <br> <br>
+        <label> <h4> Descrição: </h4> </label>  <textarea name="descricao" placeholder="{{$tarefa->descricao ?? old('descricao')}}"  rows="10" cols="20" maxlength="100"> </textarea> <br> <br>
 
          <h4> Status: </h4> <select name="status_id">
             <option>-- Selecione um Status --</option>

@@ -27,16 +27,11 @@
             <a href="{{ route('tarefas.edit', ['tarefa' => $tarefa]) }}">
                 <button class="botao-editar-tarefa">Editar </button> </a>
 
-
-
             <form id="form_{{$tarefa->id}}" method="post" action="{{ route('tarefas.destroy', ['tarefa' => $tarefa->id]) }}">
                 @method('DELETE')
                 @csrf
                 <a href="#" onclick="document.getElementById('form_{{$tarefa->id}}').submit()"> <button class="botao-excluir-tarefa">Excluir </button></a>
-            </form>
-
-
-
+            </form> <br> <br> <br>
 
         </div>
 
