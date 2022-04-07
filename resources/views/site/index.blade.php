@@ -11,6 +11,16 @@
 
 <body>
     <div class="text-center">
+
+    <nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Pesquisar tarefa</a>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Digite o nome da tarefa" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+    </form>
+  </div>
+</nav>
         <p class="fs-1"> Lista de Tarefas </p> <a href="{{route('tarefas.create')}}"><button type="button" class="btn btn-success">Nova Tarefa</button></a>
     </div> <br> <br> <br>
 
@@ -26,12 +36,14 @@
 
             <a href="{{ route('tarefas.edit', ['tarefa' => $tarefa]) }}">
                 <button type="button" class="btn btn-primary position-relative">Editar</button> </a> <br>
+            <div>
+                <form id="form_{{$tarefa->id}}" method="post" action="{{ route('tarefas.destroy', ['tarefa' => $tarefa->id]) }}">
+                    @method('DELETE')
+                    @csrf
+                    <a href="#" onclick="document.getElementById('form_{{$tarefa->id}}').submit()"> <button type="button" class="btn btn-danger position-relative">Excluir</button></a>
+                </form> <br> <br> <br>
+             </div>
 
-            <form id="form_{{$tarefa->id}}" method="post" action="{{ route('tarefas.destroy', ['tarefa' => $tarefa->id]) }}">
-                @method('DELETE')
-                @csrf
-                <a href="#" onclick="document.getElementById('form_{{$tarefa->id}}').submit()"> <button type="button" class="btn btn-danger position-relative">Excluir</button></a>
-            </form> <br> <br> <br>
 
 
         </div>
