@@ -15,10 +15,10 @@
 
         @csrf
         @method('PUT')
-        <label> <h4> Nome da tarefa: </h4> </label> <input type="text" value="{{$tarefa->nome ?? old('nome')}}" name="nome" minlength="4" maxlength="50"> <br> <br>
+        <label> <h4> Nome da tarefa: </h4> </label> <input type="text" value="{{$tarefa->nome ?? old('nome')}}" name="nome" minlength="4" maxlength="50" required> <br> <br>
         <label> <h4> Descrição: </h4> </label>  <textarea name="descricao" placeholder="{{$tarefa->descricao ?? old('descricao')}}"  rows="10" cols="20" maxlength="100"> </textarea> <br> <br>
 
-         <h4> Status: </h4> <select name="status_id">
+         <h4> Status: </h4> <select name="status_id" required>
             <option>-- Selecione um Status --</option>
             @foreach($status as $tarefa_status)
              <option value="{{ $tarefa_status->id }}" {{ ($tarefa->status_id ?? old('status_id')) == $tarefa_status->id ? 'selected' : '' }}>{{ $tarefa_status->status }}</option>

@@ -11,10 +11,10 @@
 
     <form name="criar-tarefa"  method="POST" action="{{route('tarefas.store')}}">
         @csrf
-        <label> Nome da Tarefa: </label> <input type="text" name="nome" minlength="4" maxlength="50"> <br>
+        <label> Nome da Tarefa: </label> <input type="text" name="nome" minlength="4" maxlength="50" required> <br>
         <label> Descrição: </label> <br> <textarea  name="descricao" rows="4" cols="50" maxlength="100"> </textarea> <br>
 
-        <select name="status_id">
+        <select name="status_id" required>
         <option>-- Selecione um Status --</option>
 
         @foreach($status as $tarefa_status)
