@@ -11,27 +11,28 @@
 
 <body>
     <div class="text-center">
-     <p class="fs-1">  Lista de Tarefas </p> <a href="{{route('tarefas.create')}}"><button type="button" class="btn btn-success">Nova Tarefa</button></a>
+        <p class="fs-1"> Lista de Tarefas </p> <a href="{{route('tarefas.create')}}"><button type="button" class="btn btn-success">Nova Tarefa</button></a>
     </div> <br> <br> <br>
 
 
     <div class="text-center">
         @foreach($lista_tarefas as $tarefa)
-        <div>
+        <div class="border">
 
-        <p class="fs-3">Tarefa:</p> {{$tarefa->nome}}
-        <p class="fs-3"> Descrição:</p>{{$tarefa->descricao}} <br>
-        <p class="fs-3"> Tarefa criada em:</p> {{$tarefa->created_at->format('d-m-Y H:i:s')}} <br> <br>
-        <p class="fs-3"> Status: {{$tarefa->TarefaStatus->status ?? ''}}</p>
+            <p class="fs-3">Tarefa:</p> {{$tarefa->nome}}
+            <p class="fs-3"> Descrição:</p>{{$tarefa->descricao}} <br>
+            <p class="fs-3"> Tarefa criada em:</p> {{$tarefa->created_at->format('d-m-Y H:i:s')}} <br> <br>
+            <p class="fs-3"> Status: {{$tarefa->TarefaStatus->status ?? ''}}</p>
 
             <a href="{{ route('tarefas.edit', ['tarefa' => $tarefa]) }}">
-            <button type="button" class="btn btn-primary position-relative">Editar</button> </a>
+                <button type="button" class="btn btn-primary position-relative">Editar</button> </a> <br>
 
             <form id="form_{{$tarefa->id}}" method="post" action="{{ route('tarefas.destroy', ['tarefa' => $tarefa->id]) }}">
                 @method('DELETE')
                 @csrf
                 <a href="#" onclick="document.getElementById('form_{{$tarefa->id}}').submit()"> <button type="button" class="btn btn-danger position-relative">Excluir</button></a>
             </form> <br> <br> <br>
+
 
         </div>
 
