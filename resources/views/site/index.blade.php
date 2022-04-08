@@ -23,6 +23,7 @@
             </div>
         </nav>
 
+
         <!-- TITULO PRINCIPAL-->
         <p class="fs-1"> Lista de Tarefas </p> <a href="{{route('tarefas.create')}}"><button type="button" class="btn btn-success">Nova Tarefa</button></a>
     </div> <br> <br> <br>
@@ -45,10 +46,12 @@
             <p class="fs-3"> Status:</p>
             <p class="lead"> {{$tarefa->TarefaStatus->status ?? ''}} </p>
 
+
             <!-- BOTÃO EDITAR-->
             <a href="{{ route('tarefas.edit', ['tarefa' => $tarefa]) }}">
                 <button type="button" class="btn btn-primary position-relative">Editar</button> </a>
             <div>
+
 
             <!--BOTÃO EXCLUIR-->
                 <form id="form_{{$tarefa->id}}" method="post" action="{{ route('tarefas.destroy', ['tarefa' => $tarefa->id]) }}">
