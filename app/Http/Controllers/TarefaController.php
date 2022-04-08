@@ -24,6 +24,7 @@ class TarefaController extends Controller
         ->with('lista_tarefas', $lista_tarefas);
     }
 
+
     /**
      * Show the form for creating a new resource.
      *

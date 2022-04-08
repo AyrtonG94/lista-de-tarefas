@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PesquisarTarefaController;
 use App\Http\Controllers\TarefaController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('tarefas', TarefaController::class);
+
+Route::post('tarefa-detalhe', [PesquisarTarefaController::class, 'pesquisarTarefaPorNome'])->name('tarefa-detalhe');
