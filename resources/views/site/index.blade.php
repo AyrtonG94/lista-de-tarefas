@@ -14,7 +14,7 @@
     <div class="text-center">
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand">Pesquisar tarefa</a>
+                <a class="navbar-brand "> Pesquisar tarefa </a>
                 <form class="d-flex" method="POST" action="{{route('tarefa-detalhe')}}">
                     @csrf
                     <input class="form-control me-2" name="nome" type="search" placeholder="Digite o nome da tarefa" aria-label="Search">
@@ -26,7 +26,7 @@
 
         <!-- TITULO PRINCIPAL-->
         <p class="fs-1"> Lista de Tarefas </p> <a href="{{route('tarefas.create')}}"><button type="button" class="btn btn-success">Nova Tarefa</button></a>
-    </div> <br> <br> <br>
+    </div> <br> <br>
 
 
     <!-- EXIBIÇÃO DOS DADOS-->
@@ -50,14 +50,14 @@
             <!-- BOTÃO EDITAR-->
             <a href="{{ route('tarefas.edit', ['tarefa' => $tarefa]) }}">
                 <button type="button" class="btn btn-primary position-relative">Editar</button> </a>
-            <div>
+            <div> <br>
 
 
             <!--BOTÃO EXCLUIR-->
-                <form id="form_{{$tarefa->id}}" method="post" action="{{ route('tarefas.destroy', ['tarefa' => $tarefa->id]) }}">
+                <form id="form_{{$tarefa->id}}" method="post"  action="{{ route('tarefas.destroy', ['tarefa' => $tarefa->id]) }}" >
                     @method('DELETE')
                     @csrf
-                    <a href="#" onclick="document.getElementById('form_{{$tarefa->id}}').submit()"> <button type="button" class="btn btn-danger position-relative">Excluir</button></a>
+                    <button type="submit" onclick="excluir()" class="btn btn-danger position-relative">Excluir</button>
                 </form> <br> <br> <br>
             </div>
         </div>
@@ -65,7 +65,6 @@
         @endforeach
         {{$lista_tarefas->links()}}
     </div>
-
 </body>
 
 </html>
