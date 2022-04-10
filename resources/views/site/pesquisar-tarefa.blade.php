@@ -10,17 +10,21 @@
 </head>
 
 <body>
-</nav>
+    </nav>
 
- <!-- TITULO PRINCIPAL-->
-        <p class="fs-1 text-center"> Resultado da busca </p>  <p class="fs-4 text-center"> <a href="{{route('tarefas.index')}}"> Voltar </p> </a>
+    <!-- TITULO PRINCIPAL-->
+    <p class="fs-1 text-center"> Resultado da busca </p>
+    <p class="fs-4 text-center"> <a href="{{route('tarefas.index')}}"> Voltar </p> </a>
 
 
 
-        <!-- EXIBIÇÃO DOS DADOS-->
- @if($tarefas)
+    <!-- EXIBIÇÃO DOS DADOS-->
+
     <div class="text-center">
-        @foreach($tarefas as $tarefa)
+
+
+        @forelse($tarefas as $tarefa)
+
         <div class="border">
             <br> <br>
             <p class="fs-3">Tarefa:</p> {{$tarefa->nome}}
@@ -36,11 +40,14 @@
                     @csrf
                     <a href="#" onclick="document.getElementById('form_{{$tarefa->id}}').submit()"> <button type="button" class="btn btn-danger position-relative">Excluir</button></a>
                 </form> <br> <br> <br>
-             </div>
-        </div>
-        @endforeach
+            </div>
 
-    @endif
+        </div>
+
+        @empty
+        <h2>Essa tarefa não existe</h2>
+        @endforelse
+
 
 
     </div>
