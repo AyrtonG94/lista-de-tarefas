@@ -22,7 +22,6 @@
 
     <div class="text-center">
 
-
         @forelse($tarefas as $tarefa)
 
         <div class="border">
@@ -41,7 +40,6 @@
                     <a href="#" onclick="document.getElementById('form_{{$tarefa->id}}').submit()"> <button type="button" class="btn btn-danger position-relative">Excluir</button></a>
                 </form> <br> <br> <br>
             </div>
-
         </div>
 
         @empty
